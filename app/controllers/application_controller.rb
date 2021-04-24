@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
     if logged_in?
       redirect "/user/#{current_user.slug}"
     else
-      erb :'/homepage'
+      erb :'/welcome'
     end
   end
 
