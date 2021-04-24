@@ -30,6 +30,11 @@
     width: 85%;
   }
 
+  #page-wrap {
+    width: 800px;
+    margin: auto;
+  }
+
   h1 {
     font-size: 36px;
     line-height: 54px;
