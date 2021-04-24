@@ -5,4 +5,4 @@ use Rack::MethodOverride
 run ApplicationController
 use UsersController
 use VinylsController
-use VinylDatabasesController
+use VinylDatabaseController
