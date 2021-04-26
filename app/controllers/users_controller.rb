@@ -19,5 +19,13 @@ class UsersController < ApplicationController
     end
   end
   
-  
+  get '/login' do
+    if logged_in?
+      redirect "/user/#{current_user.slug}"
+    else
+      erb :'/users/login'
+    end
+  end
+
+
 end
