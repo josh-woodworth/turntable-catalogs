@@ -1,2 +1,2 @@
-class VinylDatabasesController < ApplicationController
+class VinylDatabaseController < ApplicationController
 end
