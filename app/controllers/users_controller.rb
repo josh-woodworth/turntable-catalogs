@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     if logged_in?
       redirect "/user/#{current_user.slug}"
     else
-      erb :'/users/signup'
+      erb :'/users/signup', :layout => :"layout/external"
     end
   end
 
@@ -23,7 +23,18 @@ class UsersController < ApplicationController
     if logged_in?
       redirect "/user/#{current_user.slug}"
     else
-      erb :'/users/login'
+      erb :'/users/login', :layout => :"layout/external"
+    end
+  end
+
+  get '/user/:user_slug' do
+    @user = User.find_by_slug(params[:user_slug])
+
+    if @user.id == session[:user_id]
+      @vinyls = Vinyl.where(user_id: current_user.id)
+      erb :'users/homepage', :layout => :'layout/layout'
+    else
+      erb :'/users/error', :'layout/internal'
     end
   end
 

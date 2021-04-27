@@ -1,2 +1,0 @@
-class VinylDatabaseController < ApplicationController
-end
