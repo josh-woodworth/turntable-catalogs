@@ -1,0 +1,9 @@
+<h1> <%=@user.username%>'s Albums</h1>
+<br>
+<% @albums.each do |a| %>
+    <p><a href="/albums/<%= a.id %>"><%= a.title %> - <%= a.artist %></a></p>
+    <%end%>
+<br>
+<a href="/albums/new" role="button">Add Album</a>
+<br>
+<a href="/logout">Logout</a>
