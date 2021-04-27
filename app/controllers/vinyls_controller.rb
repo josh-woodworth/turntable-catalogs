@@ -9,6 +9,15 @@ class VinylsController < ApplicationController
     end
   end
 
+  post '/vinyls' do
+    vinyl = current_user.vinyls.build(params)
+    if vinyl.save
+      redirect "/vinyls/#{vinly.id}"
+    else
+      redirect '/albums/new'
+    end
+  end
+
 
 
 end
