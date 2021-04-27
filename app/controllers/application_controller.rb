@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
     if logged_in?
-      redirect "/user/#{current_user.slug}"
+      redirect "/vinyls"
     else
       erb :'/welcome'
     end
