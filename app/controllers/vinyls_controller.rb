@@ -10,14 +10,10 @@ class VinylsController < ApplicationController
     end
   end
 
-  get '/vinyls/new' do
-    erb :"vinyls/new"
-end
-
   post '/vinyls' do
     @vinyl = Vinyl.new(params)
     @vinyl.user_id = current_user.id
-
+    
     if @vinyl.save
       current_user.vinyls << @vinyl
       redirect "/vinyls/#{vinly.id}"
@@ -25,7 +21,23 @@ end
       redirect '/albums/new'
     end
   end
+  
+  get '/vinyls/new' do
+    erb :"vinyls/new"
+  end
 
+  get '/vinyls/:id/edit' do
+    if logged_in?
+      @vinyl = current_user.vinyls.find_by(params)
+      if @vinyl
+        erb :'vinyls/edit'
+      else
+        redirect '/vinyls'
+      end
+    else
+      redirect '/login'
+    end
+  end
 
 
 end
