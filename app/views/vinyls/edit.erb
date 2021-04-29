@@ -2,7 +2,7 @@
 
 <form method="POST" action="/vinyls/<%= @vinyl.id %>">
   <input type="hidden" id="hidden" name="_method" value="patch">
-    <p> vinyl Title: <br> <input type="text" name="title" value="<%=@vinyl.title%>" placeholder="Album Title"></p>
+    <p> Title: <br> <input type="text" name="title" value="<%=@vinyl.title%>" placeholder="Album Title"></p>
     <p> Artist: <br> <input type="text" name="artist" value="<%=@vinyl.artist%>" placeholder="Artist Name"></p>
     <p> Genre: <br> <input type="text" name="genre" value="<%=@vinyl.genre%>" placeholder="Genre"></p>
     <p> Release Year: <br> <input type="integer" name="release_year" value="<%=@vinyl.release_year%>" placeholder="release_year"></p>
