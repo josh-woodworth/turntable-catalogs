@@ -1,0 +1,20 @@
+
+<h2>vinyl: <%= @vinyl.title %></h2>
+<hr>
+<br>
+
+<p><b>Artist:</b> <%= @vinyl.artist %></p>
+<p><b>Genre:</b> <%= @vinyl.genre %></p>
+<p><b>Release Year:</b> <%= @vinyl.release_year %></p>
+<form method="POST" action="/vinyls/<%= @vinyl.id%>">
+    <br>
+    <input type="hidden" id="hidden" name="_method" value="delete">
+    <input class="btn btn-outline-primary" type="submit" value="Delete vinyl" id ="Delete vinyl">
+    <br>
+    <br>
+    <a class="btn btn-outline-primary" href="/vinyls/<%= @vinyl.id %>/edit" role="button">Edit</a>
+</form>
+<br>
+<br> 
+<br>
+<a href="/vinyls">Back to Your Vinyl Collection</a>

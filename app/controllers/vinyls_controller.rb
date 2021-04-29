@@ -40,15 +40,24 @@ class VinylsController < ApplicationController
   end
 
   patch '/vinyls/:id' do
-   vinyl = current_user.vinyls.find_by(id: params[:id])
-    
+    vinyl = current_user.vinyls.find_by(id: params[:id])
     if vinyl.update(title: params[:title], artist: params[:artist], genre: params[:genre], release_year: params[:release_year])
         redirect "/vinyls/#{vinyl.id}"
     else
         redirect "/vinyls/#{vinyl.id}/edit"
     end
-    
-end
+  end
 
+  get '/vinyl/:id' do
+    if logged_in?
+      @vinyl = current_user.vinlys.find_by(id: params[:id])
+      if @vinyl
+        erb :'vinyls/show'
+      else
+        redirect '/vinyls'
+      end
+    else redirect '/login'
+    end
+  end
 
 end
