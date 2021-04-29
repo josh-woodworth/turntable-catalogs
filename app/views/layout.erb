@@ -3,19 +3,52 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>TurntableCatalogs</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/main.css" />
+
+    <style>
+      html {position: relative;
+            min-height: 100%;
+            }
+      body {font-family: 'Arvo', serif;
+            margin-bottom: 70px;
+            }
+      header {background-image:url('/images/Vinyl-records.jpeg');
+              background-size: cover;
+              text-align: center;
+              color: blue;
+              width: 100%;
+            }
+      footer {text-align: center
+            }
+
+    </style>
+
+
+
   </head>
   <body>
+    <div>
+      <header>
+        <div class="row header">
+          <div class="col-sm-12">
+            <br><br><br>
+            <h1><strong>Turntable Catalogs</strong></h1>
+            <br><br><br>
+          </div>
+        </div>
+      </header>
+    </div>
+
     <div class="wrapper">
       <%= yield %>
     </div>
     <div>
-    <footer class="branding">
-        <small>&copy; 2021 <strong>TurntableCatalogs</strong></small>
+      <footer>
+       <small>&copy; 2021 <strong>TurntableCatalogs</strong></small>
       </footer>
     </div>
   </body>
