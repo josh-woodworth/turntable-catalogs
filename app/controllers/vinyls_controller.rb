@@ -9,6 +9,13 @@ class VinylsController < ApplicationController
       redirect '/login'
     end
   end
+  
+  get '/vinyls/new' do
+    if logged_in?
+      erb :"vinyls/new"
+    else redirect '/login'
+    end
+  end
 
   post '/vinyls' do
     @vinyl = Vinyl.new(params)
@@ -16,14 +23,22 @@ class VinylsController < ApplicationController
     
     if @vinyl.save
       current_user.vinyls << @vinyl
-      redirect "/vinyls/#{vinyl.id}"
+      redirect "/vinyls/#{@vinyl.id}"
     else
       redirect '/vinyls/new'
     end
   end
-  
-  get '/vinyls/new' do
-    erb :"vinyls/new"
+
+  get '/vinyls/:id' do
+    if logged_in?
+      @vinyl = current_user.vinyls.find_by(id: params[:id])
+      if @vinyl
+        erb :'vinyls/show'
+      else
+        redirect '/vinyls'
+      end
+    else redirect '/login'
+    end
   end
 
   get "/vinyls/:id/edit" do
@@ -38,39 +53,28 @@ class VinylsController < ApplicationController
       redirect '/login'
     end
   end
-
-  post '/vinyls/:id' do
+  
+  patch '/vinyls/:id' do
     vinyl = current_user.vinyls.find_by(id: params[:id])
     if vinyl.update(title: params[:title], artist: params[:artist], genre: params[:genre], release_year: params[:release_year])
-        redirect "/vinyls/#{vinyl.id}"
+      redirect "/vinyls/#{vinyl.id}"
     else
-        redirect "/vinyls/#{vinyl.id}/edit"
+      redirect "/vinyls/#{vinyl.id}/edit"
     end
   end
-
-  get '/vinyl/:id' do
-    if logged_in?
-      @vinyl = current_user.vinlys.find_by(id: params[:id])
-      if @vinyl
-        erb :'vinyls/show'
-      else
-        redirect '/vinyls'
-      end
-    else redirect '/login'
-    end
-  end
+  
 
   delete '/vinyls/:id' do
     if logged_in?
-        @vinyl = current_user.vinyls.find_by(id: params[:id])
-        if  @vinyl
-            @vinyl.delete
-        end
+      @vinyl = current_user.vinyls.find_by(id: params[:id])
+      if  
+        @vinyl
+        @vinyl.delete
+      end
         redirect '/vinyls'
     else
-        redirect '/login'
+      redirect '/login'
     end
-end
-
+  end
 
 end
