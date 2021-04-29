@@ -1,9 +1,11 @@
-<h1>My Records</h1>
+<h1>All Vinyls</h1>
 <hr><br>
 <% @vinyls.each do |vinyl| %>
-    <p><a href="/vinyls/<%= vinyl.id %>"><%= vinyl.title %> - <%= vinyl.artist %></a></p>
+    <p><a href="/vinyls/<%= vinyl.id %>"><%= vinyl.title %> - <%= vinyl.artist %></a> - <%= vinyl.user.username %></a></p>
 <%end%>
-<br><br><br>
+<br><br>
+<a class="btn btn-outline-primary" href="/vinyls/:username" role="button">Your Vinyl Collection</a>
+<br><br>
 <a class="btn btn-outline-primary" href="/vinyls/new" role="button">Add Vinyl</a>
 <br><br><br>
 <a href="/logout">Logout</a>

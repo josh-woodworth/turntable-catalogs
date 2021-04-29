@@ -19,11 +19,15 @@
       header {background-image:url('/images/Vinyl-records.jpeg');
               background-size: cover;
               text-align: center;
-              color: blue;
+              
+              text-decoration: underline;
+              text-shadow: 2px 2px whitesmoke;
+              color: rgb(150, 238, 182);
               width: 100%;
             }
       footer {text-align: center
             }
+      h1 {}
 
     </style>
 
@@ -31,17 +35,15 @@
 
   </head>
   <body>
-    <div>
       <header>
         <div class="row header">
           <div class="col-sm-12">
             <br><br><br>
-            <h1><strong>Turntable Catalogs</strong></h1>
+            <h1 style="font-size: 80px">Turntable Catalogs</h1>
             <br><br><br>
           </div>
         </div>
       </header>
-    </div>
 
     <div class="wrapper">
       <%= yield %>
