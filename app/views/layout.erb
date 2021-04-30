@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <!-- <meta charset="utf-8" /> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>TurntableCatalogs</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
 
-    <link rel="stylesheet" href="/stylesheets/main.css" />
+    <title>TurntableCatalogs</title>
 
     <style>
       html {position: relative;
@@ -46,21 +46,20 @@
             padding-left: 70px;
             background-color: none;
             }     
-      footer {margin-left: 15%;
-            margin-right: 10%;
+      footer {margin-top: 18%; 
+            margin-left: 5%;
             text-align: left;
             }
     </style>
 
-
-
-  </head>
-  <body>
+<body>
+    <div id="page-container">
+    <div id="content-wrap">
       <header>
         <div class="row header">
           <div class="col-sm-12">
-            <br><br><br><br><br><br>
-            <h1 style="font-size: 80px">Turntable Catalogs</h1>
+            <br><br><br><br><br>
+            <h1 style="font-size: 90px">Turntable Catalogs</h1>
             <br><br><br><br><br><br>
           </div>
         </div>
@@ -90,10 +89,12 @@
       <%= yield %>
     </div>
 
-    <div>
-      <footer>
-       <small >&copy; 2021 <strong>TurntableCatalogs</strong></small>
+      <footer id="footer">
+        <small >&copy; 2021 <strong>TurntableCatalogs</strong></small>
       </footer>
-    </div>
-  </body>
+
+      </div>  
+      </div>
+    </body>
+  </head>
 </html>
