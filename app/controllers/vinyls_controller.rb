@@ -31,7 +31,7 @@ class VinylsController < ApplicationController
 
   get 'vinyls/:username' do
     if logged_in?
-      current_user.vinyls
+      @vinyls = current_user.vinyls.find_by(username: params[:username])
       @vinyls = @vinyls.sort_by{|v| v.artist}
       erb :'vinyls/user'
     else
