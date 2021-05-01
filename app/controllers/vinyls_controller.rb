@@ -66,15 +66,13 @@ class VinylsController < ApplicationController
 
   delete '/vinyls/:id' do
     if logged_in?
-      @vinyl = current_user.vinyls.find_by(id: params[:id])
-      if  
+      @vinyl = current_user.vinyls.find_by(id: params[:id]) 
         @vinyl
         @vinyl.delete
-      end
         redirect '/vinyls'
     else
       redirect '/login'
     end
   end
-
+  
 end
