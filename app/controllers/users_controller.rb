@@ -16,11 +16,11 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect '/login' 
     else
-      user.username.blank? || user.password.blank? || User.find_by_username(params[:username])
+      # user.username.blank? || user.password.blank? || User.find_by_username(params[:username])
       redirect '/signup'
     end
   end
-  
+
   
   get '/login' do
       if logged_in?
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
   get '/logout' do
     session.clear
-    redirect '/'
+    redirect '/login'
   end
 
 end
