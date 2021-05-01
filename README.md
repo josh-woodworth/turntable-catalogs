@@ -4,15 +4,16 @@ Welcome to Turntable Catalogs! This application provides users the ability to st
 Users will have the ability to create, edit and delete records based on their own collection!
 
 Installation
-To use this app, clone this repo.
+To use this app, first start by cloning this repo
+followed by running the commands below in the files local terminal
 
 $ bundle install
 -
 $ rake db:migrate
 -
 $ shotgun
+-
 
 After executing those commands in your terminal you can visit "http://localhost:9393/"
 
-License
-The app is available as open source under the terms of the MIT License
+Enjoy starting your very own record collection!!
