@@ -1,5 +1,6 @@
 
 Turntable Catalogs App
+-
 Welcome to Turntable Catalogs! This application provides users the ability to store their record collection virtually.
 Users will have the ability to create, edit and delete records based on their own collection!
 
