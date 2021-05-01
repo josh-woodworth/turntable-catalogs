@@ -29,28 +29,6 @@ class VinylsController < ApplicationController
     end
   end
 
-  get 'vinyls/:username' do
-    if logged_in?
-      @vinyls = current_user.vinyls.find_by(username: params[:username])
-      @vinyls = @vinyls.sort_by{|v| v.artist}
-      erb :'vinyls/user'
-    else
-      redirect '/login'
-    end
-  end
-
-  post '/vinyls/:username' do
-    @vinyl = Vinyl.new(params)
-    @vinyl.user_id = current_user.id
-    
-    if @vinyl.save
-      current_user.vinyls << @vinyl
-      redirect "/vinyls/:username"
-    else
-      redirect '/vinyls/new'
-    end
-  end
-
   get '/vinyls/:id' do
     if logged_in?
       @vinyl = current_user.vinyls.find_by(id: params[:id])
