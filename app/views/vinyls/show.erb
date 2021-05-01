@@ -5,10 +5,9 @@
 <p><b>Genre:</b> <%= @vinyl.genre %></p>
 <p><b>Release Year:</b> <%= @vinyl.release_year %></p>
 <form method="POST" action="/vinyls/<%= @vinyl.id %>">
-  <input class="btn btn-outline-primary" type="submit" href="/vinyls/<%= @vinyl.id %>/edit" value="Edit Vinyl">
+  <a class="btn btn-outline-primary" type="submit" href="/vinyls/<%= @vinyl.id %>/edit" role="button">Edit Vinyl</a>
   <br><br>
-  <input type="hidden" id="hidden" name="_method" value="delete">
+  <input type="hidden" id="hidden" name="method" value="delete">
   <input class="btn btn-outline-primary" type="submit" value="Delete Vinyl" id="Delete Vinyl">
+  <br><br>
 </form>
-
-
